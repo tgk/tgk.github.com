@@ -63,7 +63,8 @@ The roulette supports getting the list of names from the URL. This is achieved b
     (jq/inner input-area new-content)))
 
 (defn update-url-according-to-input []
-  (set! (.-hash js/location) (js/encodeURIComponent (jq/val input-area))))
+  (set! (.-hash js/location) 
+        (js/encodeURIComponent (jq/val input-area))))
 {% endhighlight %}
 
 Next comes functions for converting the input area content to a list of items. The content of the input area is interpreted such that each line contain an item. Each item is a link if the last element is a URL. `extract-items` splits the string up based on new-lines and maps `decorate-item` on the elements. `decorate-items` generates a hiccup element for each item, either a link or a normal text element. The helper function `extract-href` parses a line; if the lines last element begins with `http` a map with `:text` and `:href` is returned, if it does not, only a `:text` part is returned.
@@ -72,7 +73,8 @@ Next comes functions for converting the input area content to a list of items. T
 (defn extract-href [s]
   (let [tokens (string/split s " ")]
     (if (= 0 (.indexOf (last tokens) "http"))
-      {:text (.substring s 0 (- (.-length s) (.-length (last tokens)))) :href (last tokens)}
+      {:text (.substring s 0 (- (.-length s) (.-length (last tokens)))) 
+       :href (last tokens)}
       {:text s})))
 
 (defn decorate-item [item]
@@ -154,4 +156,4 @@ The final piece is a function for the "Change" button which takes the user back 
   (show-configuration))
 {% endhighlight %}
 
-That's all there is to it. The project also contains a basic `project.clj` file and the `index.html`. The entire project is available at github.com/tgk/roulette. A running version of the roulette can be accessed from tgk.github.com/roulette.
+That's all there is to it. The project also contains a basic `project.clj` file and the `index.html`. The entire project is available at [github.com/tgk/roulette](http://github.com/tgk/roulette). A running version of the roulette can be accessed from [tgk.github.com/roulette](http://tgk.github.com/roulette).

@@ -15,7 +15,7 @@ The roulette consists of an `index.html` file, some bootstrap css and a single C
 
 The `index.html` file consists of a text area for entering names or topics, a div containing a mirrored bullet list of the names, a button for starting the slide show, a button for stopping it, a div with the current value of the roulette, and a button for getting back to the text area where names can be changed.
 
-The ClojureScript part uses hiccups for formatting the list of names and jayq (based on JQuery) for dom manipulation. The first part of the script defines the dom elements that are to be manipulated.
+The ClojureScript part uses hiccups for formatting the list of names and jayq (based on jQuery) for dom manipulation. The first part of the script defines the dom elements that are to be manipulated.
 
 {% highlight clj %}
 (def input-area (jq/$ :#input-area))
@@ -27,7 +27,7 @@ The ClojureScript part uses hiccups for formatting the list of names and jayq (b
 (def redo-button-view (jq/$ :#redo-button-view))
 {% endhighlight %}
 
-Next follows convenience functions for hiding and showing groups of dom elements, corresponding to different views. If you know JQuery this should look familiar.
+Next follows convenience functions for hiding and showing groups of dom elements, corresponding to different views. If you know jQuery this should look familiar.
 
 {% highlight clj %}
 (defn hide-all []

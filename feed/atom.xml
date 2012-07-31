@@ -5,7 +5,7 @@ layout: nil
 <feed xmlns="http://www.w3.org/2005/Atom">
  
  <title>Clojure/tgk</title>
- <link href="http://tgk.github.com/feed/" rel="self"/>
+ <link href="http://tgk.github.com/feed/atom.xml" rel="self"/>
  <link href="http://tgk.gihutb.com/"/>
  <updated>{{ site.time | date_to_xmlschema }}</updated>
  <id>http://tgk.github.com/</id>

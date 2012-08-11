@@ -5,7 +5,7 @@ title: Finding cliques in graphs using core.logic
 
 # {{page.title}}
 
-In [this recent post](http://tgk.github.com/2012/08/maximum-cliques-algorithm-in-clojure.html) I described a Clojure implementation of the Bron Kerbosch algorithm for finding maximum cliques. In my financing statement, I mentioned that the Bron Kerbosch algorithm is somewhat similar to the algorithm employed by miniKanren and [core.logic](https://github.com/clojure/core.logic/) when looking for solutions to relational systems. I've since implemented a version of the algorithm in core.logic. I guess it's slightly misleading to say I've implemented an algorithm -- rather, I have defined, in core.logic, what it means to be a clique and asked core.logic to do the rest of the work!
+In [this recent post](http://tgk.github.com/2012/08/maximum-cliques-algorithm-in-clojure.html) I described a Clojure implementation of the Bron Kerbosch algorithm for finding maximum cliques. In my finishing statement, I mentioned that the Bron Kerbosch algorithm is somewhat similar to the algorithm employed by miniKanren and [core.logic](https://github.com/clojure/core.logic/) when looking for solutions to relational systems. I've since implemented a version of the algorithm in core.logic. I guess it's slightly misleading to say I've implemented an algorithm -- rather, I have defined, in core.logic, what it means to be a clique and asked core.logic to do the rest of the work!
 
 ## Definition of cliques in core.logic
 

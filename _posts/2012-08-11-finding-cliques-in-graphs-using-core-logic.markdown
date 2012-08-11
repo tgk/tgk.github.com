@@ -110,7 +110,7 @@ user> (time (maximum-cliques [1 2 3 4 5 6] neighbour))
 "Elapsed time: 0.966 msecs"
 {% endhighlight %}
 
-Bare in mind that the core.logic version solves a much more general problem, and that it is much easier to combine with other criteria to answer much more interesting problems. For example, you could easily define that all nodes in a clique should be of the same colour, have the same number of outgoing edges, etc...
+Bear in mind that the core.logic version solves a much more general problem, and that it is much easier to combine with other criteria to answer much more interesting problems. For example, you could easily define that all nodes in a clique should be of the same colour, have the same number of outgoing edges, etc...
 
 I would be very interested in getting input on how to solve optimisation problems such as this in core.logic. So far, I've only declared what being a clique is, not what being a biggest clique is. Also, I wonder if it is possible to declare that the `connected` relation is symmetrical.
 

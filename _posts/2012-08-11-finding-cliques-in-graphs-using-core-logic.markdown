@@ -115,3 +115,7 @@ Bear in mind that the core.logic version solves a much more general problem, and
 I would be very interested in getting input on how to solve optimisation problems such as this in core.logic. So far, I've only declared what being a clique is, not what being a biggest clique is. Also, I wonder if it is possible to declare that the `connected` relation is symmetrical.
 
 If you haven't already, go and check out core.logic. It's great fun! [Here's an excellent introductory talk](http://vimeo.com/45128721), [another one](http://blip.tv/clojure/ambrose-bonnaire-sergeant-introduction-to-logic-programming-with-clojure-5936196), and a [great one about miniKanren](http://blip.tv/clojure/dan-friedman-and-william-byrd-minikanren-5936333).
+
+## Update
+
+David Nolen, being a gentleman and a scholar, has been so kind as to look into my problem! [In this post](http://dosync.posterous.com/know-your-bounds) he adds indexes and, more interestingly, defines an upper bound on the size of an answer. In my problem, any clique's size is bounded by the total number of nodes, forming a termination criteria. See his blog post for the definition of `bounded-listo`, and a rewrite of my `connected-to-allo` and `all-connected-to-allo` relations.

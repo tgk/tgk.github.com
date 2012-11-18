@@ -91,7 +91,7 @@ We need to transact the schema and the data onto a database. As we do not need a
 @(d/transact connection data-tx)
 {% endhighlight %}
 
-We can not query Datomic. For example, we can get all individual subjects out
+We cannot query Datomic. For example, we can get all individual subjects out
 
 {% highlight clj %}
 (q '[:find ?subject
@@ -247,7 +247,7 @@ In our data, we can see that quite a different number of students sat the differ
 
 ![Blue and red circles for subjects](/images/2012-11-18-visualising-gcse-statistics-using-datomic-and-quil/scaled.png)
 
-The image reveals that quite a lot of students seem to have done worse in three different subjects. However, we can not tell which subjects they are. Let's highlight the subject our mouse cursor is closest to, and print the name of the subject and the percentage of students achieving C or above for 2012 and 2011.
+The image reveals that quite a lot of students seem to have done worse in three different subjects. However, we cannot tell which subjects they are. Let's highlight the subject our mouse cursor is closest to, and print the name of the subject and the percentage of students achieving C or above for 2012 and 2011.
 
 {% highlight clj %}
 (defn draw []
@@ -302,20 +302,20 @@ The image reveals that quite a lot of students seem to have done worse in three 
 
 ![Mouse sensitive drawing](/images/2012-11-18-visualising-gcse-statistics-using-datomic-and-quil/mouse.png)
 
-Alright, so now we can see that it's Science, Maths and English that have gone back. This observation matches the critique of the new marking scheme issued 2012.
+Alright, so now we can see that it's Science, Maths and English that have fallen. This observation matches the critique of the new marking scheme issued 2012.
 
-This is only data for boys. In the final version I have added a listener for keypresses to change gender, as well as axises. The full listing can be found [at github](https://github.com/tgk/gcse-results).
+This is only data for boys. In the final version I have added a listener for keypresses to change gender, as well as axes. The full listing can be found [at github](https://github.com/tgk/gcse-results).
 
 ![Final visualisation](/images/2012-11-18-visualising-gcse-statistics-using-datomic-and-quil/final.png)
 
 As we can see, girls are doing slightly better than boys in most topics, whereas the mixed group is slightly evened out.
 
-Another interesting observation is that students generally have very good marks in Chemistry, Biology and Physics. This might be because these three subjects are not compolsary, and therefore only interested students will take them. Also, grammar schools  tend to split Science into these three subjects, which means the data might be slightly skewed towards grammar schools in those three data points. Unfortunately, the dataset does not contain information about the types of schools.
+Another interesting observation is that students generally have very good marks in Chemistry, Biology and Physics. This might be because these three subjects are usually combined in GCSE Science, and only the most able students are likely to take them as three seperate GSCEs. Particularly grammar schools and selective private schools tend to split Science into these three subjects, which means the data might be slightly skewed towards these schools in those three data points. Unfortunately, the dataset does not contain information about the types of schools.
 
 ## Conclusion
 
 In this blog post I wanted to demonstrate the visualisation of GCSE data from 2011 and 2012. The resulting program is an interactive data visualisation, coming in at under 200 lines of code, including database schema, parsing and visualisation.
 
-Datomic has shown itself to be an extremely useful tool for performing data analysis. Performing queries to aggregate data is very natural. Likewise, Quil has been demonstrated as being capabel of quite advanced visualisations with very little code.
+Datomic has shown itself to be an extremely useful tool for performing data analysis. Performing queries to aggregate data is very natural. Likewise, Quil has been demonstrated as being capable of quite advanced visualisations with very little code.
 
 I'm looking forward to seeing what types of data visualisations people will come up with, using these powerful, but very simple tools!

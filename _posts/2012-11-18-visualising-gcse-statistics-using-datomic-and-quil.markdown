@@ -91,7 +91,7 @@ We need to transact the schema and the data onto a database. As we do not need a
 @(d/transact connection data-tx)
 {% endhighlight %}
 
-We cannot query Datomic. For example, we can get all individual subjects out
+We can now query Datomic. For example, we can get all individual subjects out
 
 {% highlight clj %}
 (q '[:find ?subject

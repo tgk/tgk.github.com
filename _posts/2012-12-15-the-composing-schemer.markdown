@@ -17,8 +17,6 @@ If you want to play along, the full code can be found [here at github](https://g
 
 Writing about something musical can be a bit difficult without some example. In [this video](https://vimeo.com/55677313), I demonstrate what I came up with. I will go through selections of the code below.
 
-<iframe src="http://player.vimeo.com/video/55677313?color=ffffff" width="600" height="600" frameborder="0"></iframe>
-
 ## Overtone 
 
 I must confess I've never played with Overtone before. I like to blame the fact that I don't feel very musical, even though Sam Aaron repeatedly state that that is not the point. Reading through the tutorial, I found the definition of a triangle-wave, and instructions for how to play notes.

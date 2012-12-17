@@ -17,6 +17,8 @@ If you want to play along, the full code can be found [here at github](https://g
 
 Writing about something musical can be a bit difficult without some example. In [this video](https://vimeo.com/55677313), I demonstrate what I came up with. I will go through selections of the code below.
 
+
+
 ## Overtone 
 
 I must confess I've never played with Overtone before. I like to blame the fact that I don't feel very musical, even though Sam Aaron repeatedly state that that is not the point. Reading through the tutorial, I found the definition of a triangle-wave, and instructions for how to play notes.
@@ -249,3 +251,31 @@ The main thing that annoys me about my experiments is, that I need a `scaleo` ge
 {% endhighlight %}
 
 Feedback in the comments and pull requests [on the project](https://github.com/tgk/the-composing-schemer) are more than welcome!
+
+## Update
+
+Mathfarmer has suggested an alternative, binary representation of scales. The representation makes it possible to derive the scale and base-note used for a melody, as long as it follows our rules. I've implemented it in a different namescale, so it is now possible to perform the following query
+
+{% highlight clj %}
+(l/run* [q]
+         (l/fresh [melody
+                   m1 m2 m3 m4 m5 m6 m7 m8
+                   scale
+                   s1 s2 s3 s4 s5 s6 s7 s8
+                   scale-type base-note scale-keyword]
+                  (l/== q [scale-keyword base-note scale-type])
+                  (l/== [:C4 :F4 :B4 :G4 :E4 :A4 :D4 :C4]
+                        [m1 m2 m3 m4 m5 m6 m7 m1])
+                  (l/== melody [m1 m2 m3 m4 m5 m6 m7 m8])
+                  (l/== scale [s1 s2 s3 s4 s5 s6 s7 s8])
+                  (l/== m1 s1)
+                  (l/== m8 s8)
+                  (l/membero [scale-keyword scale-type] scale-modes)
+                  (scaleo base-note scale-type scale)
+                  (l/permuteo scale melody)))
+;; => ([:major-scale :C4 (1 0 1 0 1 1 0 1 0 1 0 1 1 0 1 0 1 1 0 1 0 1 0 1 1)])
+{% endhighlight %}
+
+See [this file](https://github.com/tgk/the-composing-schemer/blob/master/src/composer/better_scales.clj) for a complete example.
+
+Also, Jack Rusher has a different approach for generating music in Clojure, using Markov models. You can find more information [here on github](https://github.com/jackrusher/clj-markov-melody).

@@ -9,7 +9,7 @@ Rich Hickey has been advocating that services should be highly decoupled with a 
 
 This blog post presents a REST service which expects an edn map with a `:name` key. The service reverses the name and returns it as an edn map containing a `:message` key.
 
-The full project with a `project.clj` file and instructions for testing the project can be found [at github](https://github.com/tgk/edn-spike).
+The full spike with a `project.clj` file and instructions for testing the spike can be found [at github](https://github.com/tgk/edn-spike).
 
 ## Clojure Ring app
 
@@ -47,7 +47,7 @@ The `:edn-params` in the request map is supplied by Fogus' `ring-edn` [project](
 
 ## ClojureScript frontend
 
-The ClojureScript part of the project is highly inspired by Edmund Jackson's [Minimal Ajaxy ClojureScript](https://github.com/ejackson/Minimal-Ajaxy-Closurescript) project with [accompanying blog post](http://boss-level.com/?p=119).
+The ClojureScript part of the spike is highly inspired by Edmund Jackson's [Minimal Ajaxy ClojureScript](https://github.com/ejackson/Minimal-Ajaxy-Closurescript) project with [accompanying blog post](http://boss-level.com/?p=119).
 
 {% highlight clj %}
 (ns spike.frontend

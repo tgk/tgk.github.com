@@ -5,7 +5,7 @@ title: edn service spike
 
 # {{page.title}}
 
-Rich Hickey has been advocating that services should be highly decoupled with a common, extensible format, such as edn. Fogus has a [great library](https://github.com/fogus/ring-edn) for exposing a REST service with the `application/edn` content type, and Edmund Jackson has a [blog post](http://boss-level.com/?p=119) about transmitting edn data through URLs, but neither example demonstrates a full stack service using edn.
+Rich Hickey has been advocating that services should be highly decoupled with a common, extensible format, such as edn. Fogus has a [great library](https://github.com/fogus/ring-edn) for exposing a REST service with the `application/edn` content type, and Edmund Jackson has a [blog post](http://boss-level.com/?p=119) about transmitting edn data through URLs, but neither example demonstrates a full stack service using edn. There are other full stack alternatives, such as [shoreleave](https://github.com/shoreleave/shoreleave-remote), but these abstract away the communication protocol, creating a tighter coupling between the frontend and backend of an application.
 
 This blog post presents a REST service which expects an edn map with a `:name` key. The service reverses the name and returns it as an edn map containing a `:message` key.
 

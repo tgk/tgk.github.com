@@ -5,7 +5,7 @@ title: Parsing packets Erlang style using core.logic
 
 # {{page.title}}
 
-Attending the [Zurich Erlang User Group](http://www.meetup.com/Zurich-Erlang-User-Group/) meetup yesterday, I was struck by how easy it is to parse packets of data in Erlang using the `<<...>>` construct. Here is a nice example which parses a size, using that size to parse a chunk of data:
+Attending the [Zurich Erlang User Group](http://www.meetup.com/Zurich-Erlang-User-Group/) meetup yesterday, I was struck by how easy it is to parse packets of data in Erlang using the `<<...>>` construct. Here is a nice example which parses a size, and then uses that size to parse a chunk of data:
 
 {% highlight erl %}
 <<Size:4/binary,C:Size,_Rest>> = Data.

@@ -254,7 +254,7 @@ Feedback in the comments and pull requests [on the project](https://github.com/t
 
 ## Update
 
-Mathfarmer has suggested an alternative, binary representation of scales. The representation makes it possible to derive the scale and base-note used for a melody, as long as it follows our rules. I've implemented it in a different namescale, so it is now possible to perform the following query
+Mathfarmer has suggested an alternative, binary representation of scales. The representation makes it possible to derive the scale and base-note used for a melody, as long as it follows our rules. I've implemented it in a different namespace, so it is now possible to perform the following query
 
 {% highlight clj %}
 (l/run* [q]

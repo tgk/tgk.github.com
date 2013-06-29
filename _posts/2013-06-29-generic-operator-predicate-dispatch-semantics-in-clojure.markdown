@@ -13,7 +13,7 @@ In this post I will go through some different strategies for implementing generi
 
 ## Problem description
 
-In this particular case, I needed a predicate dispatch system that would allow me to perform operator overloading using predicates without tarnishing the runtime. These two reasons rule out the use of multimethods, as they do not support predicate dispatch, and they tarnish the runtime.
+In this particular case, I needed a predicate dispatch system that would allow me to perform operator overloading using predicates without tarnishing the runtime. By tarnishing the runtime, I mean that it should be possible to assign new operations to a generic operator and get a new generic operator, while keeping the old. These two reasons rule out the use of multimethods, as they do not support predicate dispatch, and they tarnish the runtime.
 
 In an ideal scenario, it should be possible to do something like this:
 
@@ -212,9 +212,9 @@ We can store the predicates in the meta-data for the generic operator instead. T
 
 This post described two types of semantics for generic operators using predicate dispatch in Clojure, but was unable to give an elegant solution to the original problem definition. The question is, does the original problem definition even describe an approach that is desirable to use as a generic operator system?
 
-In my use case, I want to supply users with a particular generic operator, which they need to extend tu support to add new datatypes or behaviours to the library. Given these constraints, the different options can be summarised as follows:
+In my use case, I want to supply users with a particular generic operator, which they need to extend to support new datatypes or behaviours to the library. Given these constraints, the different options can be summarised as follows:
 
-- Multimethods - Well understod by users. Only support type dispatch. Tarnishes generic operator (but a new one can be generated using macros). Support recursion. Implemented in Clojure.
+- Multimethods - Well understod by users. Does not support general predicates. Tarnishes generic operator (but a new one can be generated using macros). Support recursion. Implemented in Clojure.
 - Simple recursion - Simple for users to understand. Supports predicate dispatch. Does not tarnish generic operator. Does not support recursion. Implemented and described here.
 - Function with predicates in meta-data - Simple for users to understand. Supports predicate dispatch. Tarnishes generic operator (but a new one can be returned by function-call). Supports recursion. Implemented and described here.
 - Solution from problem definition - Harder for users to understand. Supports predicate dispatch. Doe not tarnish generic operator. Supports recursion. Is not currently implemented.

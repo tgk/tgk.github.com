@@ -116,7 +116,7 @@ Using simple recursion to create new functions, much like wrappers in Ring, allo
 ;; => "foobar" - OK
 
 (str&vec&even-+ [2 "foo"] [4 "bar"])
-;; => (6 "foobar") - NOT what we wanted ((6 "foobar"))
+;; => (6 "foobar") - NOT what we wanted (7 "foobar")
 
 (str-+ 2 4)
 ;; => 6 - OK

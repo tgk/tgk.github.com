@@ -3,10 +3,10 @@ layout: nil
 ---
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
- 
+
  <title>Clojure/tgk</title>
- <link href="http://tgk.github.com/feed/atom.xml" rel="self"/>
- <link href="http://tgk.gihutb.com/"/>
+ <link href="http://tgk.github.io/feed/atom.xml" rel="self"/>
+ <link href="http://tgk.gihutb.io/"/>
  <updated>{{ site.time | date_to_xmlschema }}</updated>
  <id>http://tgk.github.com/</id>
  <author>
@@ -16,11 +16,11 @@ layout: nil
  {% for post in site.posts %}
  <entry>
    <title>{{ post.title }}</title>
-   <link href="http://tgk.github.com{{ post.url }}"/>
+   <link href="http://tgk.github.io{{ post.url }}"/>
    <updated>{{ post.date | date_to_xmlschema }}</updated>
    <id>http://tgk.github.com{{ post.id }}</id>
    <content type="html">{{ post.content | xml_escape }}</content>
  </entry>
  {% endfor %}
- 
+
 </feed>

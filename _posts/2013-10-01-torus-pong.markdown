@@ -5,6 +5,14 @@ title: Torus pong - a massive multiplayer online game built in a weekend using C
 
 # {{page.title}}
 
+*Update* Ragnar has written up a blog post describing the architecture
+ of our solution. If you're interested in that part of the project,
+ please find it
+ [here](http://ragnard.github.io/2013/10/01/clojurecup-pong-async.html).
+ It goes into detail on how core.async and WebSockets and how we used
+ them to coordinate state between clients. It's a great read, and very
+ much worth your time.
+
 Last weekend saw the first ClojureCup. Here at uSwitch, we teamed up to
 build a massive multiplayer version of the arcade classic pong using
 Clojure and ClojureScript. This blog post outlines how we went about it.

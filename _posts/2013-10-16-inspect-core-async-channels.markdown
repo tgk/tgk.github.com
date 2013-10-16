@@ -13,14 +13,14 @@ processing steps, and in the ClojureCup competition,
 relied heavily on core.async for separating concerns, allowing us to
 develop parts of the project in parallel.
 
-In those of Rich Hickeys talks that focus on building your system like a
-factory, one of the main points is, that it provides transparency to the
-processes in the system. Putting your data on a virtual conveyor belt
-allows you to take it off or put it back on another belt at any
-time. Having worked with core.async for a while, we can testify to the
-fact that putting stuff on queues and channels truely makes a
-difference, but we are yet to gain transparency of our data as it
-travels through our system.
+In some of Rich Hickeys talks, he focues on
+[building your system like a factory](http://www.youtube.com/watch?v=ROor6_NGIWU). One
+of the main points is, that it provides transparency to the processes in
+the system. Putting your data on a virtual conveyor belt allows you to
+take it off or put it back on another belt at any time. Having worked
+with core.async for a while, we can testify to the fact that putting
+stuff on queues and channels truely makes a difference, but we are yet
+to gain transparency of our data as it travels through our system.
 
 This post will demonstrate methods to inspect what objects are on
 core.async channels at any given time, by implementing custom buffers

@@ -201,3 +201,15 @@ item spends on a channel.
 Thanks to Jonas Enlund for having created
 [cljsfiddle](http://cljsfiddle.net/). It's a great way to play around
 with ClojureScript and to share example code.
+
+### Update
+
+Timothy Baldridge has supplied a bit of insight in the comments section,
+namely that the ClojureScript version will work fine, as we do not need
+to worry about threads when accessing the ring buffer. The Clojure
+version, however, is not thread-safe, as `LinkedList`s are not
+thread-safe. You can wrap the buffer operations in an atom for your
+queue in your custom buffer implementation, and use an immutable
+datastructure. This will give you a performance hit, but you probably
+don't want to look at the content of a buffer in a high performant
+context. This is left as an exercise :).

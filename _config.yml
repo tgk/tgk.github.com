@@ -1,7 +1,5 @@
 destination: ./_site
-auto:        true
 lsi:         false
-server:      4000
 pygments:    true
 markdown:    maruku
 permalink:   /:year/:month/:title.html

@@ -6,7 +6,7 @@ layout: nil
 
  <title>Clojure/tgk</title>
  <link href="http://tgk.github.io/feed/atom.xml" rel="self"/>
- <link href="http://tgk.gihutb.io/"/>
+ <link href="http://tgk.github.io/"/>
  <updated>{{ site.time | date_to_xmlschema }}</updated>
  <id>http://tgk.github.io/</id>
  <author>

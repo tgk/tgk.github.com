@@ -7,6 +7,14 @@ title: Getting hot with propagators
 
 ## Introduction
 
+I've been working on a library for defining systems using propagators in
+Clojure, and yesterday,
+[my Clojure/conj talk about propagators in Clojure](http://www.youtube.com/watch?v=JXOOO9MLvhs&feature=youtu.be)
+was released. The talk is quite high level and very little detail was
+paid to how to actually use propagators in
+[the propaganda library](https://github.com/tgk/propaganda) the talk
+presented.
+
 Propagators are a form of declarative programming, and are in many ways
 similar to logic programming, but with very different semantics. This
 means that some things, such as numerical calculations, are much easier
@@ -27,7 +35,9 @@ If you need a two-minute quick overview of propagators,
 [here's one page of text and animations to get you started](http://tgk.github.io/propaganda/).
 
 All the code here uses version 0.2.0 of
-[the propaganda library](https://github.com/tgk/propaganda).
+[the propaganda library](https://github.com/tgk/propaganda). The code in
+it's full form is available
+[at github](https://github.com/tgk/getting-hot).
 
 ## Simple two-way relations
 
@@ -112,11 +122,11 @@ the two systems and detect conflicting temperature readings.
 
 ## Even simpler one-way relation
 
-We can also use propagators where information only flows one way. This
-is less powerful, but sometimes it will be the nature of our problem,
-that we can derive A from B, but not B from A. For example, if it's less
-than 0 degress celcius outside, we know it's cold, but if we just know
-it's cold outside, we don't know the exact temperature.
+We can also define propagators where information only flows one
+way. This is less powerful, but sometimes it will be the nature of our
+problem, that we can derive A from B, but not B from A. For example, if
+it's less than 0 degress celcius outside, we know it's cold, but if we
+just know it's cold outside, we don't know the exact temperature.
 
 Let's define this one-way relation and put it into our system.
 
@@ -178,12 +188,10 @@ advanced matching. In multimethods you have to define your pattern
 function up front. This is a constraint we can't live with when doing
 propagators, and we therefore turn to generic operators.
 
-Generic operators are functions which can be extended to cover new types
-of input based on a predicate dispatch of the input
-parameters. propaganda comes with a generic operator library built in
-which can be used for defining new generic operators and extending
-them. The library is available in the `propaganda.generic-operators`
-namespace.
+propaganda comes with a generic operator library built in which can be
+used for defining new generic operators and extending them using
+predicate dispatch on the input parameters. The library is available in
+the `propaganda.generic-operators` namespace.
 
 Here are two simple examples, both defining a new generic operator
 called `plus` and extending it from numbers to also cover vectors, with
@@ -230,10 +238,10 @@ value types in a cell is a set. In this example, we are going to define
 two sets as being in conflict iff their intersection is empty.
 
 Let's write a helper function for checking if two sets intersect. If
-they do, we return their intersection. If they do and the intersection
-only contains one element, we return the element. This will allow us to
-mix set values and all other values. If they do not intersect, we return
-a `contradiction`, which is a propaganda datatype, indication that two
+they do, we return their intersection. If the intersection only contains
+one element, we return the element. This will allow us to mix set values
+and all other values. If they do not intersect, we return a
+`contradiction`, which is a propaganda datatype, indicating that two
 values contradict each other.
 
 {% highlight clj %}
@@ -281,7 +289,7 @@ function on them. In it's base implementation, if one of the values are
 `nothing`, the other value wins. If they are different, that is a
 contracdiction. We can supply our own merge function, and by extending
 the base implementation using generic operators, we can add support for
-sets.
+sets being merged with other sets and other values.
 
 {% highlight clj %}
 (defn extend-merge
@@ -348,6 +356,7 @@ I appreciate that this introduction has been pretty heavy-going. My
 focus has been on covering a lot of ground, rather than going in to
 great detail. If you have found any step of the tutorial difficult to
 understand, please do not hesitate to leave a comment or get in touch on
-twitter at `@tgkristensen`.
+twitter at `@tgkristensen`. You can also have a look at the code for
+this post [at github](https://github.com/tgk/getting-hot).
 
 I will post a link to the next tutorial here when it becomes available.

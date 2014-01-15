@@ -359,4 +359,5 @@ understand, please do not hesitate to leave a comment or get in touch on
 twitter at `@tgkristensen`. You can also have a look at the code for
 this post [at github](https://github.com/tgk/getting-hot).
 
-I will post a link to the next tutorial here when it becomes available.
+The second part of the tutorial can be found
+[here](http://tgk.github.io/2014/01/taking-propagators-to-the-next-level.html).

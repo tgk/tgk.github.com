@@ -31,15 +31,17 @@ store on it, and the range of libraries available. There isn't an
 Arduino Riemann library out there, and even if there were, we might not
 want to include it in our binary as it would take up too much space.
 
-In this setup, we are going to only use a TCP library on the Arduino,
-and use a Riemann HTTP proxy written in Clojure to forward our events to
-Riemann.
+Therefore, in this setup, we are going to only use a TCP library on the
+Arduino, and use a Riemann HTTP proxy written in Clojure to forward our
+events to Riemann.
 
 ## Setting up a Riemann HTTP proxy
 
 This setup uses the
 [Riemann HTTP Proxy](https://github.com/tgk/riemann-http-proxy)
-project. If you go that project and clone the repo onto the box where you are running Riemann, you can boot the proxy up simply by changing to the directory where it is runnin and executing
+project. If you go that project and clone the repo onto the box where
+you are running Riemann, you can boot the proxy up simply by changing to
+the directory where it was cloned and executing
 
     lein run
 
@@ -95,14 +97,14 @@ I found
 [this guide](http://computers.tutsplus.com/tutorials/how-to-read-temperatures-with-arduino--mac-53714)
 very helpful for playing around with the thermistor. The guide contains a wiring diagram if you need the details for hooking up the thermistor to `A0`.
 
-If everything went well, you're circuit is going to like a little something like this (obviously with better soldering)
+If everything went well, you're circuit is going to like a little something like this (obviously with better soldering).
 
-![Arduino setup with Ethernet addapter and thermistor](images/sending-events-from-arduino-to-riemann/setup.jpg)
+![Arduino setup with Ethernet addapter and thermistor](/images/sending-events-from-arduino-to-riemann/setup.jpg)
 
 ## Arduino source
 
 The program we are going to upload to the Arduino is quite simple. Every
-five seconds, we read the temperature off and send the result as an
+five seconds, we read the temperature and send the result as an
 edn-formatted event to the HTTP proxy. To keep the program simple, there
 is no error handling.
 
@@ -110,7 +112,7 @@ This example assumes your Riemann HTTP proxy can be looked up on
 DNS. Just change the `proxyHost` variable to point to your proxy, and
 you should be good to go.
 
-{% highlight ino %}
+{% highlight c %}
 #include <EtherCard.h>
 #include <Stash.h>
 
@@ -187,7 +189,7 @@ Hopefully, if you go to your Riemann dashboard, you'll be able to read
 the current temperature in the room you've plaved the Arduino as the
 metric of the temperature events that are ticking in.
 
-![A Riemann dashboard with the temperature in my lounge - toasty!](images/sending-events-from-arduino-to-riemann/dashboard.png)
+![A Riemann dashboard with the temperature in my lounge - toasty!](/images/sending-events-from-arduino-to-riemann/dashboard.png)
 
 ## Conclusion
 

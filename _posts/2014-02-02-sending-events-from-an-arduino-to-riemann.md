@@ -28,16 +28,16 @@ design.
 
 ## Architecture
 
-Sending events to Riemann requires us to either use one of the existing
-Riemann client libraries, or to implement the Riemann protocol. The
-Arduino platform is fairly limited in the size of the programs we can
-store on it, and the range of libraries available. There isn't an
-Arduino Riemann library out there, and even if there were, we might not
-want to include it in our binary as it would take up too much space.
+Sending events to Riemann requires access to one of the existing Riemann
+client libraries, or an implementation of the Riemann protocol. The
+Arduino platform is fairly limited in the size of the programs that can
+be stored on the board, and the range of libraries available. There
+isn't an Arduino Riemann library out there, and even if there were, it
+might not be able to fit on the board, given other libraries and custom
+code.
 
-Therefore, in this setup, we are going to only use a TCP library on the
-Arduino, and use a Riemann HTTP proxy written in Clojure to forward
-events to Riemann.
+Therefore, this setup only uses a TCP library on the Arduino, and a
+Riemann HTTP proxy written in Clojure to forward events to Riemann.
 
 ![Architectual overview](/images/sending-events-from-arduino-to-riemann/architecture.png)
 

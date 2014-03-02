@@ -17,10 +17,14 @@ specific metrics.
 
 Riemann events don't need to originate from a server in the cloud. In
 this post I'm going to demonstrate how to send events from an Arduino to
-Riemann, using a HTTP proxy. We are going to build a simple circuit with
-a thermistor, an Ethernet interface and an Arduino Uno. The circuit is
-going to send the current temperature in the room to a Riemann server
+Riemann, using a HTTP proxy. I am going to describe a simple circuit
+with a thermistor, an Ethernet interface and an Arduino Uno. The circuit
+is going to send the current temperature in the room to a Riemann server
 every five seconds.
+
+The objective of the post is not to go into detail with every step of
+the construction of the circuit, but rather to describe the overall
+design.
 
 ## Architecture
 
@@ -32,18 +36,18 @@ Arduino Riemann library out there, and even if there were, we might not
 want to include it in our binary as it would take up too much space.
 
 Therefore, in this setup, we are going to only use a TCP library on the
-Arduino, and use a Riemann HTTP proxy written in Clojure to forward our
+Arduino, and use a Riemann HTTP proxy written in Clojure to forward
 events to Riemann.
+
+![Architectual overview](/images/sending-events-from-arduino-to-riemann/architecture.png)
 
 ## Setting up a Riemann HTTP proxy
 
 This setup uses the
 [Riemann HTTP Proxy](https://github.com/tgk/riemann-http-proxy)
 project. If you go that project and clone the repo onto the box where
-you are running Riemann, you can boot the proxy up simply by changing to
-the directory where it was cloned and executing
-
-    lein run
+you are running Riemann, you can start the proxy simply by changing to
+the directory where it was cloned and executing `lein run`.
 
 This assumes that you have leiningen installed. If you do not,
 [installation instructions are avaiable here](http://leiningen.org/).
@@ -194,10 +198,17 @@ metric of the temperature events that are ticking in.
 ## Conclusion
 
 In this post I've demonstrated how we can send events from a very simple
-platform, the Ardunio, to Riemann without relying on a Riemann library
+platform, the Arduino, to Riemann without relying on a Riemann library
 on the platform from which the events originate.
 
 The question now is what to do with the events once they're in
 Riemann. If you want to store them for further analysis, you can forward
 them to Graphite, or you could send out an email if the current
 temperature gets above a set threshold.
+
+Using a HTTP proxy to send Riemann events can also be an advantage in
+projects where you wish to introduce Riemann monitoring on a component
+basis, but where you are restricted to a certain range of
+libraries. Since HTTP will (almost) always be available, you can resort
+to sending HTTP messages to the proxy, rather than import another
+library to your codebase.

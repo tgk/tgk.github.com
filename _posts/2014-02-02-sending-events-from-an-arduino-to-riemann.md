@@ -97,11 +97,12 @@ the Arduino through a 10K Ohm resistor to ground, we can use
 `analogRead` to get accurate readings we can convert to degrees celsius
 using the Steinhart-Hart equation.
 
-I found
-[this guide](http://computers.tutsplus.com/tutorials/how-to-read-temperatures-with-arduino--mac-53714)
-very helpful for playing around with the thermistor. The guide contains a wiring diagram if you need the details for hooking up the thermistor to `A0`.
+[This guide](http://computers.tutsplus.com/tutorials/how-to-read-temperatures-with-arduino--mac-53714)
+is very helpful for playing around with the thermistor. The guide
+contains a wiring diagram if you need the details for hooking up the
+thermistor to `A0`.
 
-If everything went well, you're circuit is going to like a little something like this (obviously with better soldering).
+A setup similar to the one described will look something like this.
 
 ![Arduino setup with Ethernet addapter and thermistor](/images/sending-events-from-arduino-to-riemann/setup.jpg)
 
@@ -197,7 +198,7 @@ metric of the temperature events that are ticking in.
 
 ## Conclusion
 
-In this post I've demonstrated how we can send events from a very simple
+In this post I've demonstrated how to send events from a very simple
 platform, the Arduino, to Riemann without relying on a Riemann library
 on the platform from which the events originate.
 

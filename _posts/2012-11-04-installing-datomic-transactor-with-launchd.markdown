@@ -155,7 +155,7 @@ Since the transactor is configured to be up at all times, you can restart if by 
 
 {% highlight bash %}
 
-sudo launchctl stop datomic.transactor.plist
+sudo launchctl stop datomic.transactor
 
 {% endhighlight %}
 
